@@ -10,6 +10,19 @@ public class PlayerController : MonoBehaviour
     Vector3 velocity;
     public ProjectileController projectileController;
 
+    public int Player_HP = 50;                         //플레이어 HP선언
+
+    public void Damanged(int Damage)                  //데미지 받는 함수 생성
+    {
+        Player_HP -= Damage;                         //받은 데미지 HP에 반영
+
+        if(Player_HP < 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+
     void Start()
     {
         viewCamera = Camera.main;
